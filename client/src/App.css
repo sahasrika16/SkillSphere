@@ -1,0 +1,45 @@
+/* SkillSphere global app styles */
+
+/* Smooth fade animation */
+.fade-up {
+  animation: fadeUp 0.4s ease;
+}
+
+/* Reusable card */
+.card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Page container */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: 2rem;
+}
+
+/* Reusable page title */
+.page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+}
+
+.page-subtitle {
+  margin-top: 0.5rem;
+  color: #94a3b8;
+}
