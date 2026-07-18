@@ -73,19 +73,21 @@
   function App() {
     return (
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+  <Route path="/" element={<Login />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+  <Route path="/login" element={<Login />} />
+
+  <Route path="/register" element={<Register />} />
+
+  <Route
+    path="/dashboard"
+    element={
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    }
+  />
 
         <Route
           path="/gigs"
@@ -224,11 +226,15 @@
           <Route path="reviews" element={<ManageReviews />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
         
 <Route
-    path="/payments"
-    element={<Payments />}
+  path="/payments"
+  element={
+    <ProtectedRoute>
+      <Payments />
+    </ProtectedRoute>
+  }
 />
       </Routes>
     );
