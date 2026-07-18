@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://skillsphere-backend-72pj.onrender.com",
   headers: {
     "Content-Type": "application/json"
   }
