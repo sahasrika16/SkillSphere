@@ -19,6 +19,42 @@ const app = express();
 
 /*
 ==================================================
+Allowed Origins (CORS)
+==================================================
+Add every frontend origin you actually use here.
+Vercel gives every deploy a unique URL, so instead of
+hardcoding one, we allow your production domain plus
+a pattern that matches ANY of your Vercel previews.
+*/
+
+const allowedOrigins = [
+  "https://skillsphere-psi-bice.vercel.app", // production
+  "http://localhost:5173", // local dev
+  "http://localhost:3000", // local dev (alt port)
+];
+
+const allowedOriginPatterns = [
+  /^https:\/\/skillsphere-.*-sahasrika\.vercel\.app$/, // any Vercel preview deploy for this project
+];
+
+const corsOriginCheck = (origin, callback) => {
+  // allow requests with no origin (curl, Postman, server-to-server)
+  if (!origin) return callback(null, true);
+
+  const isAllowed =
+    allowedOrigins.includes(origin) ||
+    allowedOriginPatterns.some((pattern) => pattern.test(origin));
+
+  if (isAllowed) {
+    callback(null, true);
+  } else {
+    console.warn("❌ Blocked by CORS:", origin);
+    callback(new Error("Not allowed by CORS: " + origin));
+  }
+};
+
+/*
+==================================================
 Create HTTP Server
 ==================================================
 */
@@ -33,7 +69,7 @@ Socket.IO
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "https://skillsphere-pf6v5gnsk-sahasrika.vercel.app",
+    origin: corsOriginCheck,
     credentials: true
   }
 });
@@ -104,7 +140,7 @@ Middlewares
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://skillsphere-pf6v5gnsk-sahasrika.vercel.app",
+    origin: corsOriginCheck,
     credentials: true
   })
 );
