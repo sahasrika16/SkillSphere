@@ -142,7 +142,7 @@ const AppLayout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[250px] flex-col overflow-hidden border-r border-white/10 bg-slate-900/80 p-6 backdrop-blur-xl lg:flex">
+      <aside className="fixed left-0 top-0 z-40 flex h-screen w-[250px] flex-col overflow-hidden border-r border-white/10 bg-slate-900/80 p-6 backdrop-blur-xl">
         <div className="flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-blue-500 to-violet-500 shadow-lg shadow-blue-500/20">
             <Sparkles size={28} />

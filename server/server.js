@@ -33,7 +33,7 @@ Socket.IO
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "https://skillsphere-pf6v5gnsk-sahasrika.vercel.app",
     credentials: true
   }
 });
@@ -104,7 +104,7 @@ Middlewares
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "https://skillsphere-pf6v5gnsk-sahasrika.vercel.app",
     credentials: true
   })
 );
